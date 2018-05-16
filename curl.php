@@ -21,6 +21,7 @@
  	$check_data = json_decode($run_curl,true);
  	if($check_data['success'] == 'true'){
  		echo "SUCCESS !!! <br> POST ID : $firt_post_id - REACTION TYPE : $rand_reaction ";
+   echo "<p>LINK REVIEW : <a href='https://facebook.com/$first_post_id'> https://facebook.com/$first_post_id</a></p>";
  	}
  	else{
  		echo "FAIL !!! <br> POST ID : $firt_post_id - REACTION TYPE : $rand_reaction ";
