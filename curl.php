@@ -10,21 +10,21 @@
  $rand_reaction = $list_reaction[array_rand($list_reaction)];
 
  $post = json_decode(request(GRAPH_URL.CRUSH_USER_ID.'/posts?fields=id&limit=1&access_token='.ACCESS_TOKEN),true);
- $firt_post_id = $post['data'][0]['id'];
+ $first_post_id = $post['data'][0]['id'];
 
  $logpost = file_get_contents('log.txt');
- if(strpos($logpost, $firt_post_id) === FALSE){
- 	$run_curl = request(GRAPH_URL.$firt_post_id."/reactions?type=".$rand_reaction."&method=POST&access_token=".ACCESS_TOKEN);
+ if(strpos($logpost, $first_post_id) === FALSE){
+ 	$run_curl = request(GRAPH_URL.$first_post_id."/reactions?type=".$rand_reaction."&method=POST&access_token=".ACCESS_TOKEN);
  	$log = fopen('log.txt', 'a');
- 	fwrite($log, "POSTID : $firt_post_id - REACTION TYPE : $rand_reaction");
+ 	fwrite($log, "POSTID : $first_post_id - REACTION TYPE : $rand_reaction");
  	fclose($log);
  	$check_data = json_decode($run_curl,true);
  	if($check_data['success'] == 'true'){
- 		echo "SUCCESS !!! <br> POST ID : $firt_post_id - REACTION TYPE : $rand_reaction ";
-   echo "<p>LINK REVIEW : <a href='https://facebook.com/$first_post_id'> https://facebook.com/$first_post_id</a></p>";
+ 		echo "SUCCESS !!! <br> POST ID : $first_post_id - REACTION TYPE : $rand_reaction ";
+   echo "<p>LINK REVIEW : <a href='https://facebook.com/$first_post_id' target='_blank'> HTTPS://FACEBOOK.COM/$first_post_id</a></p>";
  	}
  	else{
- 		echo "FAIL !!! <br> POST ID : $firt_post_id - REACTION TYPE : $rand_reaction ";
+ 		echo "FAIL !!! <br> POST ID : $first_post_id - REACTION TYPE : $rand_reaction ";
  	}
  }
  else{
