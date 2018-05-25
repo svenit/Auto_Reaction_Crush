@@ -2,8 +2,8 @@
  set_time_limit(0);
  error_reporting(0);
 
- define('ACCESS_TOKEN','EAAAAAYsX7TsBAMA2EoMN7xOZBJgZAlHkkWA2jN3ZCZBSeqg31Hi1lZBSoxQHuIoOMRxvORZC5EC9hcZCaUrRxWRfXzMZCuAd6DmrzP2v9aUSdLCndbepakVEzQFezUqQugCpuiilCvmzreNMlyZAZB1H7iVODMOv5nwdOfHFRX8BEXb9XbE34JgbZCC');
- define('CRUSH_USER_ID','100012904572542');
+ define('ACCESS_TOKEN','');
+ define('CRUSH_USER_ID','');
  define('GRAPH_URL', 'https://graph.fb.me/');
 
  $list_reaction = ['LIKE','LOVE','WOW','HAHA','ANGRY'];
