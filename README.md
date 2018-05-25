@@ -1,14 +1,47 @@
-## Auto Reaction Crush PHP v1
-### Hướng dẫn
-**+ Sửa Token,ID Crush tại dòng 5,6**
-```
-   define('ACCESS_TOKEN','Nhập Token của bạn vào đây');
-   define('CRUSH_USER_ID','Nhập User ID của Crush');
-```
-**+ Upload code lên Host**
+### Hướng dẫn sử dụng Auto Reaction Crush
++ Sửa Access Token tại dòng thứ **8** ( Lưu ý : Access Token phải full quyền )
 
-- Lưu ý : Phải ChMod(777) cho file nha, nếu bạn muốn chạy Cronjob thì có thể xóa dòng
+```php
+ define('ACCESS_TOKEN','Nhập Access Token vào đây');
+ 
+ ```
+ + Sửa Crush ID tại dòng thứ **9**
+
+```php
+ define('CRUSH_USER_ID','Nhập User ID của Crush');
+ 
+ ```
+ 
+ + Sửa Nội dung Comment tại dòng thứ **18**
+ 
+```php
+ $message = "Xin chào $crush_name <3 
+ 👑 Free Source Code Curl at : https://gitlab.com/svenjunior 👑
+ ";
 ```
- exec("php curl.php"); // Ở đây mình đặt tên file là curl.php
+ 
+ **Nếu bạn chỉ muốn Auto Thả Tim vào bài viết của Crush thì xóa dòng 12 và sửa dòng 13 như dưới đây**
+
+```php
+  $rand_reaction = 'LOVE'; 
+
 ```
-**Coded by Junior**
+
+ **Sau khi chỉnh sửa xong upload code lên Hosting**
+ + Rồi chạy Cronjob cho file
+ 
+
+
+### Contact me
+
+```php
+ $facebook = "https://facebook.com/100012668051362";
+ $instagram = "https://www.instagram.com/sho_ox/";
+ $email = "lequangvy812@gmail.com";
+ $github = "https://github.com/svenjunior";
+ $gitlab = "https://gitlab.com/svenjunior";
+ $website = "";
+
+```
+**Coded by Junior . Auto Reaction Crush Version 2**
+ 
