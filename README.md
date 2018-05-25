@@ -3,13 +3,11 @@
 
 ```php
  define('ACCESS_TOKEN','Nhập Access Token vào đây');
- 
  ```
  + Sửa Crush ID tại dòng thứ **9**
 
 ```php
  define('CRUSH_USER_ID','Nhập User ID của Crush');
- 
  ```
  
  + Sửa Nội dung Comment tại dòng thứ **18**
@@ -24,7 +22,6 @@
 
 ```php
   $rand_reaction = 'LOVE'; 
-
 ```
 
  **Sau khi chỉnh sửa xong upload code lên Hosting**
