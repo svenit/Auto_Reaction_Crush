@@ -2,26 +2,31 @@
  set_time_limit(0);
  error_reporting(0);
 
- define('ACCESS_TOKEN','');
- define('CRUSH_USER_ID','');
+ define('ACCESS_TOKEN','EAAAAAYsX7TsBAMA2EoMN7xOZBJgZAlHkkWA2jN3ZCZBSeqg31Hi1lZBSoxQHuIoOMRxvORZC5EC9hcZCaUrRxWRfXzMZCuAd6DmrzP2v9aUSdLCndbepakVEzQFezUqQugCpuiilCvmzreNMlyZAZB1H7iVODMOv5nwdOfHFRX8BEXb9XbE34JgbZCC');
+ define('CRUSH_USER_ID','100012904572542');
  define('GRAPH_URL', 'https://graph.fb.me/');
 
  $list_reaction = ['LIKE','LOVE','WOW','HAHA','ANGRY'];
  $rand_reaction = $list_reaction[array_rand($list_reaction)];
-
  $post = json_decode(request(GRAPH_URL.CRUSH_USER_ID.'/posts?fields=id&limit=1&access_token='.ACCESS_TOKEN),true);
+ $get_crush_infor = json_decode(request(GRAPH_URL.CRUSH_USER_ID.'?access_token='.ACCESS_TOKEN),true);
  $first_post_id = $post['data'][0]['id'];
+ $crush_name = $get_crush_infor['name'];
+ $message = "Hi $crush_name <3 
+ Free Source Code Curl at : https://gitlab.com/svenjunior
+ ";
 
  $logpost = file_get_contents('log.txt');
  if(strpos($logpost, $first_post_id) === FALSE){
- 	$run_curl = request(GRAPH_URL.$first_post_id."/reactions?type=".$rand_reaction."&method=POST&access_token=".ACCESS_TOKEN);
- 	$log = fopen('log.txt', 'a');
- 	fwrite($log, "POSTID : $first_post_id - REACTION TYPE : $rand_reaction");
- 	fclose($log);
- 	$check_data = json_decode($run_curl,true);
+ 	$run_curl_like = request(GRAPH_URL.$first_post_id."/reactions?type=".$rand_reaction."&method=POST&access_token=".ACCESS_TOKEN);
+    $run_curl_comment = request(GRAPH_URL.$first_post_id."/comments?&message=".urlencode($message)."&method=POST&access_token=".ACCESS_TOKEN);
+ 	$check_data = json_decode($run_curl_like,true);
  	if($check_data['success'] == 'true'){
  		echo "SUCCESS !!! <br> POST ID : $first_post_id - REACTION TYPE : $rand_reaction ";
-   echo "<p>LINK REVIEW : <a href='https://facebook.com/$first_post_id' target='_blank'> HTTPS://FACEBOOK.COM/$first_post_id</a></p>";
+     	echo "<br>LINK REVIEW : <a href='https://facebook.com/$first_post_id' target='_blank'> HTTPS://FACEBOOK.COM/$first_post_id</a>";
+     	$log = fopen('log.txt', 'a');
+ 	    fwrite($log, "POSTID : $first_post_id - REACTION TYPE : $rand_reaction");
+ 	    fclose($log);
  	}
  	else{
  		echo "FAIL !!! <br> POST ID : $first_post_id - REACTION TYPE : $rand_reaction ";
