@@ -12,9 +12,7 @@
  $get_crush_infor = json_decode(request(GRAPH_URL.CRUSH_USER_ID.'?access_token='.ACCESS_TOKEN),true);
  $first_post_id = $post['data'][0]['id'];
  $crush_name = $get_crush_infor['name'];
- $message = "Hi $crush_name <3 
- Free Source Code Curl at : https://gitlab.com/svenjunior
- ";
+ $message = "Hi $crush_name <3";
 
  $logpost = file_get_contents('log.txt');
  if(strpos($logpost, $first_post_id) === FALSE){
