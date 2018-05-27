@@ -13,9 +13,7 @@
  + Sửa Nội dung Comment tại dòng thứ **18**
  
 ```php
- $message = "Xin chào $crush_name <3 
- 👑 Free Source Code Curl at : https://gitlab.com/svenjunior 👑
- ";
+ $message = "Xin chào $crush_name <3 ";
 ```
  
  **Nếu bạn chỉ muốn Auto Thả Tim vào bài viết của Crush thì xóa dòng 12 và sửa dòng 13 như dưới đây**
